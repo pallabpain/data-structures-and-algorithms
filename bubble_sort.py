@@ -11,7 +11,3 @@ def bubble_sort(a):
                 swapped = True
         if not swapped:
             break
-
-array = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-bubble_sort(array)
-print array
