@@ -12,23 +12,22 @@ def mergesort(array, low, high):
         mergesort(array, low, mid) # For left half
         mergesort(array, mid + 1, high) # For right half
 
-    i, f, l = 0, low, mid + 1
-    t = [None] * (high - low + 1) # Temporary list
+    f, l = low, mid + 1
+    t = [] # temporary list
 
     while f <= mid and l <= high:
         if array[f] < array[l]:
-            t[i] = array[f]
+            t.append(array[f])
             f += 1
         else:
-            t[i] = array[l]
+            t.append(array[l])
             l += 1
-        i += 1
 
     if f <= mid:
-        t[i:] = array[f:mid + 1]
+        t.extend(array[f:mid + 1])
 
     if l <= high:
-        t[i:] = array[l:high + 1]
+        t.extend(array[l:high + 1])
 
     i = 0
     # Update the original list with the sorted numbers
@@ -37,3 +36,6 @@ def mergesort(array, low, high):
         low += 1
         i += 1
 
+a = [18, 3, 4, 5, 19, 20, -1, 0]
+sort(a)
+print a
