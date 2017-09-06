@@ -115,16 +115,47 @@ class BinaryTree(object):
 
     def level_order(self):
         '''Prints tree in level order'''
-        queue = []
-        node = self.root
-        while node is not None:
+        queue = [self.root]
+        while queue:
+            node = queue.pop(0)
             print node.value,
             if node.left is not None:
                 queue.append(node.left)
             if node.right is not None:
                 queue.append(node.right)
-            node = queue.pop(0) if queue else None
 
+    def inorder_recursive(self):
+        ''' Inorder recusrive tree traversal '''
+        def inorder(node):
+            if node is None:
+                return
+            inorder(node.left)
+            print node.value,
+            inorder(node.right)
+
+        inorder(self.root)
+
+    def preorder_recursive(self):
+        ''' Preorder recusrive tree traversal '''
+        def preorder(node):
+            if node is None:
+                return
+            print node.value,
+            preorder(node.left)
+            preorder(node.right)
+
+        preorder(self.root)
+
+    def postorder_recursive(self):
+        ''' Preorder recusrive tree traversal '''
+        def postorder(node):
+            if node is None:
+                return
+            postorder(node.left)
+            postorder(node.right)
+            print node.value,
+
+        postorder(self.root)
 
 if __name__ == '__main__':
     tree = BinaryTree()
