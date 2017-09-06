@@ -157,6 +157,55 @@ class BinaryTree(object):
 
         postorder(self.root)
 
+    def inorder_iterative(self):
+        ''' Iterative in-order tree traversal '''
+        if self.root is None:
+            return
+        stack = []
+        node = self.root
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                print node.value,
+                node = node.right
+
+    def preorder_iterative(self):
+        ''' Iterative pre-order tree traversal '''
+        if self.root is None:
+            return
+        stack = [self.root]
+        while stack:
+            node = stack.pop()
+            print node.value,
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+
+    def postorder_iterative(self):
+        '''Iterative post-order tree traversal '''
+        if self.root is None:
+            return
+        visited = set()
+        stack = []
+        node = self.root
+        while stack or node:
+            if node:
+                stack.append(node)
+                node = node.left
+            else:
+                node = stack.pop()
+                if node.right and node.right not in visited:
+                    stack.append(node)
+                    node = node.right
+                else:
+                    visited.add(node)
+                    print node.value,
+                    node = None
+
 if __name__ == '__main__':
     tree = BinaryTree()
     nums = [5, 3, 4, 2, 7, 6, 8, 10, 9]
