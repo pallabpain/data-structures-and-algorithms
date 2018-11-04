@@ -40,9 +40,9 @@ def djikstra(graph, source):
                     and distance[u] + graph[u][v] < distance[v]):
                 distance[v] = distance[u] + graph[u][v]
 
-    print("Vertex\tDistance"
+    print("Vertex\tDistance")
     for i, d in enumerate(distance):
-        print "{}\t{}".format(i, d)
+        print("{}\t{}".format(i, d))
 
 
 # Driver code
