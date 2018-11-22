@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 This file contains the implementation of Prim's algorithm for minimum
 cost spanning tree in a connected and weighted graph using adjacency
